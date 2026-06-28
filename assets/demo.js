@@ -183,9 +183,22 @@
     show("g-strength", state.mode !== "reading");
   }
 
+  // Match the control panel's height to the MacBook so the two line up exactly;
+  // the body scrolls if controls overflow. Disabled when stacked (mobile).
+  const macbook = document.querySelector(".macbook");
+  const panel = document.querySelector(".app-panel");
+  function syncPanelHeight() {
+    if (!macbook || !panel) return;
+    if (window.innerWidth <= 760) { panel.style.height = ""; return; }
+    panel.style.height = macbook.offsetHeight + "px";
+  }
+  window.addEventListener("resize", syncPanelHeight);
+  if (window.ResizeObserver) new ResizeObserver(syncPanelHeight).observe(macbook);
+
   const r0 = reader.getBoundingClientRect();
   state.x = r0.width / 2;
   state.y = r0.height * 0.45;
   syncControls();
   render();
+  requestAnimationFrame(syncPanelHeight);
 })();

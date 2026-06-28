@@ -148,8 +148,10 @@ section { padding: 64px 0; }
   flex: 0 0 384px; width: 384px;
   background: var(--card); border: 1px solid var(--line); border-radius: 14px;
   box-shadow: var(--shadow); overflow: hidden;
+  display: flex; flex-direction: column;        /* titlebar fixed, body scrolls */
 }
-@media (max-width: 760px) { .app-panel { flex: 1 1 auto; width: auto; } }
+.app-panel .app-body { flex: 1 1 auto; overflow-y: auto; }
+@media (max-width: 760px) { .app-panel { flex: 1 1 auto; width: auto; height: auto !important; } }
 .app-titlebar {
   display: flex; align-items: center; gap: 7px;
   padding: 10px 14px; background: var(--bg-soft); border-bottom: 1px solid var(--line);

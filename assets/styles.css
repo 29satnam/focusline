@@ -116,7 +116,7 @@ section { padding: 64px 0; }
 }
 /* Stage: MacBook on the left, app control panel on the right (outside it).
    The window is fixed-scalable: it never grows past 700px but shrinks to fit. */
-.demo-stage { display: flex; gap: 46px; align-items: flex-start; max-width: 1066px; margin: 0 auto; }
+.demo-stage { display: flex; gap: 46px; align-items: center; max-width: 1066px; margin: 0 auto; }
 .demo-stage .macbook { flex: 1 1 auto; max-width: 700px; min-width: 0; margin: 0; }
 @media (max-width: 760px) {
   .demo-stage { flex-direction: column; align-items: center; }
@@ -145,9 +145,9 @@ section { padding: 64px 0; }
 
 /* Controls pane — a little Focusline app window */
 .app-panel {
-  flex: 0 0 320px; width: 320px;
+  flex: 0 0 384px; width: 384px;
   background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-  box-shadow: var(--shadow); overflow: hidden; align-self: flex-start;
+  box-shadow: var(--shadow); overflow: hidden;
 }
 @media (max-width: 760px) { .app-panel { flex: 1 1 auto; width: auto; } }
 .app-titlebar {
@@ -163,10 +163,11 @@ section { padding: 64px 0; }
   position: absolute; left: 0; right: 0; text-align: center;
   font-size: 13px; font-weight: 600; color: var(--ink-2); pointer-events: none;
 }
-.app-body { padding: 20px 18px; }
-.ctl-group { margin-bottom: 20px; }
-.ctl-group:last-child { margin-bottom: 0; }
-.ctl-group > label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 8px; }
+/* Pack controls two-per-row where they fit, so the panel reads near-square. */
+.app-body { padding: 16px; display: flex; flex-wrap: wrap; gap: 13px 14px; }
+.ctl-group { margin: 0; flex: 1 1 100%; }
+.ctl-group.half { flex: 1 1 calc(50% - 7px); }
+.ctl-group > label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 6px; }
 .seg { display: inline-flex; background: #e9e9ee; border-radius: 10px; padding: 3px; gap: 2px; flex-wrap: wrap; }
 .seg button {
   border: 0; background: transparent; padding: 7px 12px; border-radius: 8px;

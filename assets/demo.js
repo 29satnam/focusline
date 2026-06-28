@@ -163,7 +163,6 @@
   bindRange("opacity", "opacity", (v) => `${Math.round(v * 100)}%`);
   bindRange("size", "size", (v) => `${Math.round(v)} px`);
   bindRange("width", "width", (v) => `${Math.round(v * 100)}%`);
-  bindRange("movedown", "offsetY", (v) => `${Math.round(v)} px`);
   bindRange("spot", "spot", (v) => `${Math.round(v)} px`);
 
   function show(id, on) {
@@ -179,7 +178,6 @@
     show("g-opacity", line && state.style === "bar");
     show("g-size", line);
     show("g-width", line);
-    show("g-movedown", line && state.style === "bar");
     show("g-shape", spot);
     show("g-spot", spot && state.shape !== "bar");
     show("g-strength", state.mode !== "reading");

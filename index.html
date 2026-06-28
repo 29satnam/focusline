@@ -86,22 +86,35 @@
               <span class="app-title">Focusline</span>
             </div>
             <div class="app-body">
+                <!-- Choose a mode -->
                 <div class="ctl-group">
-                  <label>Mode</label>
-                  <div class="seg" data-seg="mode">
-                    <button class="on" data-val="reading">Reading</button>
-                    <button data-val="focus">Focus</button>
-                    <button data-val="spotlight">Spotlight</button>
-                    <button data-val="night">Night</button>
+                  <label>Choose a mode</label>
+                  <div class="modecards" data-seg="mode">
+                    <button class="modecard" data-val="off">
+                      <span class="mc-prev off"></span><b>Off</b><i>Nothing on</i></button>
+                    <button class="modecard on" data-val="reading">
+                      <span class="mc-prev reading"></span><b>Reading</b><i>Guide your line</i></button>
+                    <button class="modecard" data-val="focus">
+                      <span class="mc-prev focus"></span><b>Focus</b><i>Dim the rest</i></button>
+                    <button class="modecard" data-val="spotlight">
+                      <span class="mc-prev spotlight"></span><b>Spotlight</b><i>Light your line</i></button>
+                    <button class="modecard" data-val="night">
+                      <span class="mc-prev night"></span><b>Night</b><i>Warm &amp; dim</i></button>
                   </div>
                 </div>
 
-                <div class="ctl-group" id="g-style">
-                  <label>Guide style</label>
-                  <div class="seg" data-seg="style">
-                    <button class="on" data-val="bar">Bar</button>
-                    <button data-val="highlight">Highlight</button>
-                  </div>
+                <!-- Selected-mode promise -->
+                <div class="tagline" id="tagline">
+                  <span class="tag-icon">▸</span>
+                  <span id="tag-text">A clear line guides every line you read.</span>
+                </div>
+
+                <div class="customize-head" id="customize-head">⚙︎ Customize</div>
+
+                <!-- Reading bar -->
+                <div class="ctl-group" id="g-bar">
+                  <label>Reading bar</label>
+                  <div class="seg" data-seg="barstyle"><!-- rebuilt per Mode by JS --></div>
                 </div>
 
                 <div class="ctl-group" id="g-shape">
@@ -114,28 +127,33 @@
                   </div>
                 </div>
 
-                <div class="ctl-group" id="g-position">
-                  <label>Guide position</label>
-                  <div class="seg" data-seg="position">
-                    <button class="on" data-val="follow">Follow cursor</button>
-                    <button data-val="centered">Centered</button>
-                  </div>
-                </div>
-
                 <div class="ctl-group" id="g-color">
-                  <label>Colour</label>
+                  <label>Color</label>
                   <div class="swatches">
-                    <span class="swatch on" data-color="#ffd15c" style="background:#ffd15c"></span>
-                    <span class="swatch" data-color="#ffe08a" style="background:#ffe08a"></span>
-                    <span class="swatch" data-color="#ff9e7a" style="background:#ff9e7a"></span>
-                    <span class="swatch" data-color="#9ee6c4" style="background:#9ee6c4"></span>
-                    <span class="swatch" data-color="#8fc7ff" style="background:#8fc7ff"></span>
+                    <span class="swatch on rec" data-color="#ffd15c" style="background:#ffd15c"></span>
+                    <span class="swatch rec" data-color="#8fc7ff" style="background:#8fc7ff"></span>
+                    <span class="swatch rec" data-color="#9ee6c4" style="background:#9ee6c4"></span>
+                    <span class="swatch" data-color="#ffb27a" style="background:#ffb27a"></span>
+                    <span class="swatch" data-color="#ff7a7a" style="background:#ff7a7a"></span>
+                    <span class="swatch" data-color="#ff9ec7" style="background:#ff9ec7"></span>
+                    <span class="swatch" data-color="#b9a6ff" style="background:#b9a6ff"></span>
                   </div>
+                  <p class="ctl-note"><u>Underlined</u> tones are recommended for eye comfort.</p>
                 </div>
 
-                <div class="ctl-group half" id="g-opacity">
+                <div class="ctl-group" id="g-opacity">
                   <label class="row"><span>Opacity</span> <span class="val" id="opacity-val"></span></label>
                   <input class="range" id="opacity" type="range" min="0.2" max="1" step="0.05" value="0.9" />
+                </div>
+
+                <div class="ctl-group" id="g-centered">
+                  <div class="toggle-row">
+                    <div>
+                      <div class="toggle-title">Keep bar centered</div>
+                      <div class="toggle-sub">Bar stays in the middle and moves only up and down.</div>
+                    </div>
+                    <button class="switch" id="centered" role="switch"></button>
+                  </div>
                 </div>
 
                 <div class="ctl-group half" id="g-size">
@@ -149,16 +167,27 @@
                 </div>
 
                 <div class="ctl-group half" id="g-spot">
-                  <label class="row"><span>Spotlight radius</span> <span class="val" id="spot-val"></span></label>
+                  <label class="row"><span>Size</span> <span class="val" id="spot-val"></span></label>
                   <input class="range" id="spot" type="range" min="80" max="240" step="10" value="150" />
                 </div>
 
-                <div class="ctl-group" id="g-strength">
-                  <label>Dim strength</label>
+                <!-- Screen tint -->
+                <div class="ctl-group" id="g-tint">
+                  <label>Screen tint</label>
                   <div class="seg" data-seg="strength">
                     <button data-val="0.35">Light</button>
                     <button class="on" data-val="0.55">Medium</button>
                     <button data-val="0.8">Strong</button>
+                  </div>
+                </div>
+
+                <div class="ctl-group" id="g-nightwash">
+                  <div class="toggle-row">
+                    <div>
+                      <div class="toggle-title">Night wash</div>
+                      <div class="toggle-sub">Warm, dim, low-glare light for night reading.</div>
+                    </div>
+                    <button class="switch on" role="switch" disabled></button>
                   </div>
                 </div>
             </div>

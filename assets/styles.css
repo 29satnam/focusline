@@ -169,6 +169,55 @@ section { padding: 64px 0; }
 .app-body { padding: 16px; display: flex; flex-wrap: wrap; gap: 13px 14px; }
 .ctl-group { margin: 0; flex: 1 1 100%; }
 .ctl-group.half { flex: 1 1 calc(50% - 7px); }
+.ctl-note { font-size: 10.5px; color: var(--ink-2); margin: 7px 0 0; }
+
+/* Mode cards — the app's "Choose a mode" grid, with live mini previews. */
+.modecards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.modecard {
+  border: 1.5px solid var(--line); background: var(--card); border-radius: 9px;
+  padding: 6px 3px 7px; cursor: pointer; display: flex; flex-direction: column;
+  align-items: center; gap: 3px; text-align: center;
+}
+.modecard.on { border-color: #3b82f6; background: #eef4ff; }
+.modecard b { font-size: 10px; font-weight: 600; }
+.modecard i { font-size: 8px; color: var(--ink-2); font-style: normal; line-height: 1.05; }
+.mc-prev {
+  width: 100%; height: 26px; border-radius: 5px; background: #fff;
+  border: 1px solid #e2e2e8; position: relative; overflow: hidden;
+}
+/* default page lines */
+.mc-prev::before {
+  content: ""; position: absolute; left: 5px; right: 5px; top: 6px; height: 2px;
+  border-radius: 2px; background: #cfcfd6; box-shadow: 0 5px 0 #cfcfd6, 0 10px 0 #dadae0;
+}
+.mc-prev.reading::after { content: ""; position: absolute; left: 6px; right: 10px; top: 13px; height: 2.5px; border-radius: 2px; background: #ffd15c; }
+.mc-prev.focus, .mc-prev.spotlight { background: #2b2b30; }
+.mc-prev.focus::before, .mc-prev.spotlight::before { background: #6b6b73; box-shadow: 0 5px 0 #6b6b73, 0 10px 0 #55555c; }
+.mc-prev.focus::after { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 9px; background: #fbfbfd; }
+.mc-prev.spotlight::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%, -50%); background: #fbfbfd; }
+.mc-prev.night { background: #3a2a14; }
+.mc-prev.night::before { background: #7a6a4a; box-shadow: 0 5px 0 #7a6a4a, 0 10px 0 #6a5a3a; }
+.mc-prev.night::after { content: ""; position: absolute; left: 6px; right: 10px; top: 13px; height: 2.5px; border-radius: 2px; background: #ffd15c; }
+.mc-prev.off::after { content: "⦸"; position: absolute; inset: 0; display: grid; place-items: center; color: #c2c2c8; font-size: 13px; }
+
+/* Selected-mode tagline + Customize header */
+.tagline { display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 500; }
+.tagline .tag-icon { color: #3b82f6; font-size: 11px; }
+.customize-head { font-weight: 700; font-size: 13px; }
+
+/* Recommended colour tones get an underline, like the app. */
+.swatches { padding-bottom: 7px; }
+.swatch.rec::after { content: ""; position: absolute; left: 3px; right: 3px; bottom: -6px; height: 2px; background: var(--ink-2); border-radius: 2px; }
+.swatch { position: relative; }
+
+/* Toggle switch */
+.toggle-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.toggle-title { font-size: 13px; font-weight: 500; }
+.toggle-sub { font-size: 10.5px; color: var(--ink-2); line-height: 1.3; }
+.switch { width: 38px; height: 22px; border-radius: 999px; background: #d7d7dd; border: 0; position: relative; cursor: pointer; flex: 0 0 auto; transition: background .15s; }
+.switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.3); transition: left .15s; }
+.switch.on { background: #34c759; }
+.switch.on::after { left: 18px; }
 .ctl-group > label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 6px; }
 .seg { display: inline-flex; background: #e9e9ee; border-radius: 10px; padding: 3px; gap: 2px; flex-wrap: wrap; }
 .seg button {

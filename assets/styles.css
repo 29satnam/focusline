@@ -115,10 +115,14 @@ section { padding: 64px 0; }
   border-radius: 0 0 7px 7px; box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.25);
 }
 @media (max-width: 520px) { .mb-base { width: 110%; left: -5%; } }
-/* Stage: MacBook on the left, app control panel on the right (outside it). */
-.demo-stage { display: flex; gap: 30px; align-items: flex-start; }
-.demo-stage .macbook { flex: 1 1 auto; max-width: none; margin: 0; }
-@media (max-width: 760px) { .demo-stage { flex-direction: column; align-items: stretch; } }
+/* Stage: MacBook on the left, app control panel on the right (outside it).
+   The window is fixed-scalable: it never grows past 700px but shrinks to fit. */
+.demo-stage { display: flex; gap: 30px; align-items: flex-start; max-width: 1060px; margin: 0 auto; }
+.demo-stage .macbook { flex: 1 1 auto; max-width: 700px; min-width: 0; margin: 0; }
+@media (max-width: 760px) {
+  .demo-stage { flex-direction: column; align-items: center; }
+  .demo-stage .macbook { width: 100%; }
+}
 
 /* Reader pane (the live, real behaviour) */
 .reader {

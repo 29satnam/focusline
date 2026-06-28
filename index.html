@@ -63,6 +63,7 @@
            <div class="mb-screen">
             <div class="reader" id="reader">
                 <div class="layer" id="dim"></div>
+                <div class="layer" id="hole"></div>
                 <div class="layer" id="band"></div>
                 <div class="layer" id="bar"></div>
                 <div class="reader-text">
@@ -107,7 +108,17 @@
                   <label>Spotlight shape</label>
                   <div class="seg" data-seg="shape">
                     <button class="on" data-val="round">Round</button>
+                    <button data-val="rectangle">Rect</button>
+                    <button data-val="square">Square</button>
                     <button data-val="bar">Bar</button>
+                  </div>
+                </div>
+
+                <div class="ctl-group" id="g-position">
+                  <label>Guide position</label>
+                  <div class="seg" data-seg="position">
+                    <button class="on" data-val="follow">Follow cursor</button>
+                    <button data-val="centered">Centered</button>
                   </div>
                 </div>
 
@@ -128,8 +139,18 @@
                 </div>
 
                 <div class="ctl-group" id="g-size">
-                  <label class="row"><span>Size</span> <span class="val" id="size-val"></span></label>
-                  <input class="range" id="size" type="range" min="3" max="16" step="1" value="6" />
+                  <label class="row"><span>Thickness</span> <span class="val" id="size-val"></span></label>
+                  <input class="range" id="size" type="range" min="3" max="20" step="1" value="6" />
+                </div>
+
+                <div class="ctl-group" id="g-width">
+                  <label class="row"><span>Width</span> <span class="val" id="width-val"></span></label>
+                  <input class="range" id="width" type="range" min="0.3" max="1" step="0.05" value="0.8" />
+                </div>
+
+                <div class="ctl-group" id="g-movedown">
+                  <label class="row"><span>Move down</span> <span class="val" id="movedown-val"></span></label>
+                  <input class="range" id="movedown" type="range" min="-20" max="40" step="2" value="10" />
                 </div>
 
                 <div class="ctl-group" id="g-spot">
@@ -138,8 +159,12 @@
                 </div>
 
                 <div class="ctl-group" id="g-strength">
-                  <label class="row"><span>Dim strength</span> <span class="val" id="strength-val"></span></label>
-                  <input class="range" id="strength" type="range" min="0.2" max="0.85" step="0.05" value="0.55" />
+                  <label>Dim strength</label>
+                  <div class="seg" data-seg="strength">
+                    <button data-val="0.35">Light</button>
+                    <button class="on" data-val="0.55">Medium</button>
+                    <button data-val="0.8">Strong</button>
+                  </div>
                 </div>
             </div>
           </aside>
@@ -186,6 +211,41 @@
             <div class="ico">🖥️</div>
             <h3>Multi-display</h3>
             <p>Choose which screens Focusline runs on. Lives quietly in the menu bar, out of your way.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">⌨️</div>
+            <h3>Keyboard shortcuts</h3>
+            <p>Toggle the reading bar or screen tint with your own global hotkeys — no clicking required.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🌗</div>
+            <h3>Distraction-Free tint</h3>
+            <p>Tint the whole screen, or leave the app you're working in fully clear while everything behind it dims.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🔆</div>
+            <h3>Spotlight shapes</h3>
+            <p>Round, rectangle, square or a full-width band — pick the cut-out that frames your line best.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🧠</div>
+            <h3>Per-Mode memory</h3>
+            <p>Every Mode keeps its own bar and tint. Switch between them and your setup is restored exactly.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🚀</div>
+            <h3>Launch at login</h3>
+            <p>Start Focusline automatically and let it sit in the menu bar, ready the moment you open your Mac.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🔒</div>
+            <h3>Private by design</h3>
+            <p>It only reads your cursor position to place the guide — never what's on your screen or what you read.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">📐</div>
+            <h3>Precise placement</h3>
+            <p>Nudge the bar up or down from the cursor line, set its width, and keep it centered or following along.</p>
           </div>
         </div>
       </div>

@@ -82,6 +82,7 @@ section { padding: 64px 0; }
 .macbook { max-width: 880px; margin: 0 auto; }
 .mb-screen {
   position: relative;
+  aspect-ratio: 16 / 10;             /* a real laptop screen, landscape */
   background: #050507;
   border: 10px solid #0a0a0c;        /* thin space-black bezel */
   border-radius: 22px 22px 8px 8px;
@@ -117,11 +118,11 @@ section { padding: 64px 0; }
 /* Stage: MacBook on the left, app control panel on the right (outside it). */
 .demo-stage { display: flex; gap: 30px; align-items: flex-start; }
 .demo-stage .macbook { flex: 1 1 auto; max-width: none; margin: 0; }
-@media (max-width: 860px) { .demo-stage { flex-direction: column; align-items: stretch; } }
+@media (max-width: 760px) { .demo-stage { flex-direction: column; align-items: stretch; } }
 
 /* Reader pane (the live, real behaviour) */
 .reader {
-  position: relative; padding: 38px 44px; min-height: 420px;
+  position: relative; padding: 34px 44px; height: 100%; min-height: 0;
   background: #fffdf8; cursor: none; overflow: hidden;
 }
 .reader-text { position: relative; z-index: 1; max-width: 60ch; }
@@ -145,7 +146,7 @@ section { padding: 64px 0; }
   background: var(--card); border: 1px solid var(--line); border-radius: 14px;
   box-shadow: var(--shadow); overflow: hidden; align-self: flex-start;
 }
-@media (max-width: 860px) { .app-panel { flex: 1 1 auto; width: auto; } }
+@media (max-width: 760px) { .app-panel { flex: 1 1 auto; width: auto; } }
 .app-titlebar {
   display: flex; align-items: center; gap: 7px;
   padding: 10px 14px; background: var(--bg-soft); border-bottom: 1px solid var(--line);

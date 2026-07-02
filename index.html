@@ -8,13 +8,17 @@
   <meta property="og:title" content="Focusline for macOS" />
   <meta property="og:description" content="A focus bar and screen tint that keep your eyes on the line through long reads." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://focusline-macos.github.io/assets/icon-1024.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png" />
+  <link rel="apple-touch-icon" href="assets/icon-256.png" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
   <nav class="nav">
     <div class="wrap">
       <a class="brand" href="#top">
-        <span class="glyph">≡</span> Focusline
+        <img class="glyph" src="assets/icon-64.png" alt="" width="28" height="28" /> Focusline
       </a>
       <div class="nav-links">
         <a href="#try">Try it</a>
@@ -29,9 +33,10 @@
   </nav>
 
   <main id="top">
-    <!-- Hero -->
-    <header class="hero">
+    <!-- Hero: live preview + settings window up top, download below -->
+    <header class="hero" id="try">
       <div class="wrap">
+        <img class="hero-icon" src="assets/icon-256.png" alt="Focusline app icon" width="104" height="104" />
         <p class="eyebrow">macOS menu-bar app</p>
         <h1>Keep your eyes<br />on the line.</h1>
         <p class="sub">
@@ -39,23 +44,7 @@
           reads stay easy and your focus stays put. Four one-tap Modes, endlessly
           tunable.
         </p>
-        <div class="cta">
-          <a class="btn" href="https://apps.apple.com/app/id6784978549">Download on the Mac App Store</a>
-          <a class="btn ghost" href="#try">See it move ↓</a>
-        </div>
-        <p class="meta">
-          <span class="stars">★★★★★</span> &nbsp;·&nbsp; macOS 13 or later &nbsp;·&nbsp; Runs in your menu bar
-        </p>
-      </div>
-    </header>
-
-    <!-- Interactive demo: the REAL behaviour -->
-    <section id="try" style="padding-top: 12px;">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>This is the real thing.</h2>
-          <p>Move your pointer over the page below. Switch Modes and tune the look — exactly like the app does on your whole screen.</p>
-        </div>
+        <p class="demo-lead">This demo is the real thing — move your pointer over the page, switch Modes, tune the look.</p>
         <div class="demo">
          <div class="demo-stage">
           <!-- The Mac shows the screen-wide effect; the app panel controls it. -->
@@ -194,8 +183,19 @@
           </aside>
          </div>
         </div>
+
+        <div class="cta">
+          <a class="store-badge" href="https://apps.apple.com/app/id6784978549">
+            <img src="assets/mac-app-store-badge.svg" alt="Download on the Mac App Store" height="56" />
+          </a>
+          <a class="btn ghost" href="#features">Explore features</a>
+          <a class="btn ghost" href="#how">How it works</a>
+        </div>
+        <p class="meta">
+          <span class="stars">★★★★★</span> &nbsp;·&nbsp; macOS 13 or later &nbsp;·&nbsp; Runs in your menu bar &nbsp;·&nbsp; Private by design
+        </p>
       </div>
-    </section>
+    </header>
 
     <!-- Features -->
     <section id="features">
@@ -316,6 +316,18 @@
           <details><summary>What does it need?</summary><p>macOS 13 or later. Focusline runs sandboxed in your menu bar.</p></details>
           <details><summary>Is my data collected?</summary><p>Focusline uses privacy-respecting analytics and crash reporting to improve the app. No reading content or screen contents are ever collected. See the <a href="privacy.html">Privacy Policy</a>.</p></details>
         </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="closer">
+      <div class="wrap">
+        <img class="hero-icon" src="assets/icon-256.png" alt="Focusline app icon" width="88" height="88" />
+        <h2>Read easier, starting today.</h2>
+        <p>Free to try. Lives in your menu bar, follows you everywhere.</p>
+        <a class="store-badge" href="https://apps.apple.com/app/id6784978549">
+          <img src="assets/mac-app-store-badge.svg" alt="Download on the Mac App Store" height="56" />
+        </a>
       </div>
     </section>
   </main>
